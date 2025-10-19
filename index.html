@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planos de Aula</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Planos de Aula</h1>
+    <p class="descricao">Preencha os dados e gere um plano de aula completo.</p>
+
+    <form id="plan-form">
+      <label>Série Escolar:</label>
+      <input type="text" id="serie" placeholder="Ex: 5º ano do fundamental" required>
+
+      <label>Matéria:</label>
+      <input type="text" id="materia" placeholder="Ex: Ciências" required>
+
+      <label>Tema da Aula:</label>
+      <input type="text" id="tema" placeholder="Ex: O ciclo da água" required>
+
+      <button type="submit" id="gerar">Gerar Aula e Salvar</button>
+    </form>
+
+    <p id="loading" style="display:none;">⏳ Gerando plano...</p>
+    <p id="error-message" class="erro"></p>
+
+    <section id="plano-resultado" style="display:none;">
+      <h2>Introdução Lúdica</h2>
+      <p id="introducao"></p>
+
+      <h2>Objetivo de Aprendizagem</h2>
+      <p id="objetivo"></p>
+
+      <h2>Passo a Passo da Atividade</h2>
+      <pre id="passo" class="caixa-texto"></pre>
+
+      <h2>Rubrica de Avaliação</h2>
+      <pre id="rubrica" class="caixa-texto"></pre>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
