@@ -1,6 +1,6 @@
 const SUPABASE_URL = "https://yxzpzfvcyiymhknwpqko.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl4enB6ZnZjeWl5bWhrbndwcWtvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2ODg0ODMsImV4cCI6MjA3NjI2NDQ4M30.02Fde_rGkZh2GuADPsfVq9YI4OpJt2IbsrzlAvzlvQg"; 
-const FUNCTION_URL = "https://yxzpzfvcyiymhknwpqko.functions.supabase.co/gerar-plano";
+const FUNCTION_URL = "https://yxzpzfvcyiymhknwpqko.supabase.co/functions/v1/gerar-plano";
 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -24,7 +24,9 @@ document.getElementById("plan-form").addEventListener("submit", async (event) =>
 
     const response = await fetch(FUNCTION_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json",
+        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+       },
       body: JSON.stringify({
       serie: serie,
       materia: materia,
