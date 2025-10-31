@@ -42,18 +42,29 @@ input {
 button {
   margin-top: 20px;
   padding: 10px 16px;
+<<<<<<< HEAD
   background-color: #0a0d11;
+=======
+  background-color: #007bff;
+>>>>>>> 1937ac1341b9d043a4006c1716750cb31e029026
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 15px;
+<<<<<<< HEAD
   display: grid;
 
 }
 
 button:hover {
   background-color: #686868;
+=======
+}
+
+button:hover {
+  background-color: #0056b3;
+>>>>>>> 1937ac1341b9d043a4006c1716750cb31e029026
 }
 
 .erro {
@@ -65,7 +76,11 @@ button:hover {
 h2 {
   color: #222;
   margin-top: 30px;
+<<<<<<< HEAD
   border-bottom: 2px solid #757575;
+=======
+  border-bottom: 2px solid #007bff;
+>>>>>>> 1937ac1341b9d043a4006c1716750cb31e029026
   padding-bottom: 5px;
 }
 
@@ -77,6 +92,7 @@ h2 {
   font-family: "Courier New", monospace;
   line-height: 1.5;
 }
+<<<<<<< HEAD
 .botao{
   display: flex; 
   justify-content: center;
@@ -91,3 +107,5 @@ h2 {
       padding: 40px;
   }
 }
+=======
+>>>>>>> 1937ac1341b9d043a4006c1716750cb31e029026
