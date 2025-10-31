@@ -1,22 +1,14 @@
-📚 Gerador de Planos de Aula com IA
+## Gerador de Planos de Aula com IA
 
-Status: 100% Funcional | Stack: HTML/JS Puro, Supabase (Edge Functions + DB), Google Gemini API
+- 100% Funcional | Stack: HTML/JS Puro, Supabase (Edge Functions + DB), Google Gemini API
 
 Este projeto é uma aplicação web completa que demonstra proficiência em desenvolvimento Backend-as-a-Service (BaaS) e integração com Inteligência Artificial, utilizando o Supabase como espinha dorsal e o modelo Gemini para geração de conteúdo pedagógico estruturado.
 
 O objetivo foi construir um sistema robusto, escalável e seguro que transforma inputs simples (Série, Matéria, Tema) em um Plano de Aula completo, alinhado aos padrões (Introdução Lúdica, Objetivo BNCC, Passo a Passo e Rubrica de Avaliação).
 
-🏗️ Arquitetura e Fluxo de Dados
+## Arquitetura e Fluxo de Dados
 
 A solução adota uma arquitetura Serverless orientada a serviços para garantir segurança e performance na integração com a IA.
-
-1. Stack Tecnológica
-
-Camada
-
-Tecnologia
-
-Racional Técnico
 
 Frontend
 
@@ -24,9 +16,9 @@ HTML, CSS, JavaScript Puro
 
 Escolha intencional para demonstrar controle total da comunicação, leveza do código e ausência de dependências de frameworks.
 
-Backend (BaaS)
+Backend
 
-Supabase (PostgreSQL, Edge Functions)
+Supabase (PostgreSQL)
 
 Utilizado para isolamento da chave de IA e persistência de dados. O Edge Function (Deno Runtime) minimiza a latência da chamada à API do Gemini e atua como uma camada de proxy segura.
 
@@ -54,25 +46,26 @@ Retorna o payload JSON do plano para o Frontend.
 
 Frontend (UI): Recebe o JSON e exibe o resultado formatado em um componente de Acordeão (Accordion) para melhor usabilidade.
 
-⚙️ Decisões Técnicas Chave
+# Decisões Técnicas Chave
 
 Esta seção destaca as decisões tomadas para atender aos requisitos do teste (segurança, modelagem e integração):
 
-🔒 Segurança e Edge Functions
+# Segurança e Edge Functions
 
 Isolamento de Chave: A GEMINI_API_KEY é armazenada com segurança como um Secret no Supabase. O Frontend nunca tem acesso direto à chave, garantindo a segurança do endpoint.
 
 Edge Function (--no-verify-jwt): O deploy foi realizado com a flag --no-verify-jwt para permitir que o Frontend (que não utiliza autenticação de usuário final) possa chamar a função publicamente, cumprindo o requisito de uma aplicação aberta.
 
-💾 Modelagem e Persistência de Dados
 
-Tabela planos_aula: Criada para persistir os resultados, contendo os campos de input e os campos de saída da IA (ex: introducao_ludica, rubrica_avaliacao etc.).
+ 3Modelagem e Persistência de Dados
+
+Tabela planos_aula: Criada para persistir os resultados, contendo os campos de input e os campos de saída da IA.
 
 SQL Scripts: O arquivo supabase_schema.sql contém a definição da tabela e suas políticas de segurança.
 
 Nota sobre Exportação: Devido a um problema de ambiente local (supabase db dump falhou por falta de link/referência do projeto), o schema foi criado manualmente no repositório para garantir a comprovação da modelagem de dados e das políticas de RLS.
 
-🧠 Escolha do Modelo de IA
+# Escolha do Modelo de IA
 
 Modelo: gemini-2.5-flash-preview-09-2025
 
@@ -82,7 +75,7 @@ Velocidade (Flash): Essencial para uma aplicação web, pois a latência é baix
 
 JSON Schema: Possui excelente desempenho na aderência a schemas JSON definidos, garantindo que o plano de aula seja entregue em um formato previsível, facilitando o parsing e a exibição no Frontend.
 
-🛠️ Configuração e Execução
+# Configuração e Execução
 
 Pré-requisitos
 
@@ -106,5 +99,5 @@ supabase functions deploy gerar-plano --no-verify-jwt
 
 Abra o arquivo index.html utilizando um servidor local (ex: Extensão Live Server do VS Code) para evitar problemas de CORS e teste a aplicação.
 
-# Exemplo se estiver usando Live Server (o mais comum)
-# Clique com o botão direito em index.html e selecione "Open with Live Server"
+- Exemplo se estiver usando Live Server (o mais comum)
+- Clique com o botão direito em index.html e selecione "Open with Live Server"
